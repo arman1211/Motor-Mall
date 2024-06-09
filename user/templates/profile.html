@@ -3,7 +3,9 @@
 {% block content %}
 {% if messages %}
 {% for message  in messages %}
-<h4>{{message}}</h4>
+ <div class="alert alert-{{message.tags}} w-50 m-auto text-center">
+    {{message}}
+ </div>
 {% endfor %}
 {% endif %}
 <div class="container row my-5 d-flex">

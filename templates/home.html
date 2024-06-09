@@ -3,15 +3,18 @@
 {% block content %}
 {% if messages %}
 {% for message  in messages %}
-<h4>{{message}}</h4>
+ <div class="alert alert-{{message.tags}} w-50 m-auto text-center">
+    {{message}}
+ </div>
 {% endfor %}
 {% endif %}
 <section>
-    <div style='height: 70vh' class="row d-flex  align-items-center">
+    <div style='height: 60vh' class="row d-flex  align-items-center">
         <div class="col-6 justify-content-center">
-            <h3>Buy your Dream Car</h3>
-            <p>We wil help to build your dream</p>
-
+            <h1 class='text-primary'>Dreams Comes True</h1>
+            <h4 class='text-success'>Buy your Dream Car</h4>
+            <p class='text-secondary'> We wil help to build your dream</p>
+            <a href=""></a>
         </div>
         <div class="col-6">
             <img src="https://i.ibb.co/RD0xvHf/car2.jpg" alt="car2" border="0">

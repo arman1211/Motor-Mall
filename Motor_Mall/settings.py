@@ -83,7 +83,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'Motor_Mall.wsgi.application'
 
-
+LOGIN_URL = '/user/login'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 

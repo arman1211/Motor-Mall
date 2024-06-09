@@ -1,7 +1,14 @@
 {% extends "base.html" %}
-
+{% load crispy_forms_tags %}
 
 {% block content %}
+{% if messages %}
+{% for message  in messages %}
+ <div class="alert alert-{{message.tags}} w-50 m-auto text-center">
+    {{message}}
+ </div>
+{% endfor %}
+{% endif %}
 
 <div class="container my-5">
     <div class="card car-card mx-auto shadow-lg">
@@ -27,4 +34,24 @@
         </div>
     </div>
 </div>
+
+<h3 class='text-center text-primary'>Comments </h3>
+
+<div class="container w-50">
+    {% for comment in comments %}
+    <p class='text-bold'>{{comment.comment}}</p>
+    <p class='text-secondary'>commented by: {{comment.user.username}}</p>
+    <hr>
+    {% endfor %}
+</div>
+
+{% if request.user.is_authenticated %}
+<h2 class='text-center text-primary'>Add comment</h2>
+<!-- {{form | crispy}} -->
+<form method='post' class='w-50 m-auto'>
+    {% csrf_token %}
+    {{form | crispy}}
+    <button type="submit" class='btn btn-primary my-1'>Submit</button>
+</form>
+{% endif %}
 {% endblock content %}

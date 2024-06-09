@@ -14,6 +14,11 @@ class CarModel(models.Model):
 
     def __str__(self):
         return self.name
+    
+class Comment(models.Model):
+    user = models.ForeignKey(User,on_delete=models.CASCADE)
+    car = models.ForeignKey(CarModel,on_delete=models.CASCADE)
+    comment = models.TextField()
 
 class Purchase(models.Model):
     user = models.ForeignKey(User,on_delete=models.CASCADE)
