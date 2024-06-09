@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+<div class="container my-5">
+    <div class="card car-card mx-auto shadow-lg">
+        <div class="row g-0">
+            <div class="col-md-6">
+                <img src="{{ car.image.url }}" class="img-fluid rounded-start car-img" alt="{{ car.name }}">
+            </div>
+            <div class="col-md-6">
+                <div class="card-body">
+                    <h5 class="card-title">{{ car.name }}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{ car.name }}</h6>
+                    <p class="card-text">{{ car.description }}</p>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><strong>Price:</strong> ${{ car.price }}</li>
+                        <li class="list-group-item"><strong>Quantity:</strong> {{ car.quantity }} available</li>
+                    </ul>
+                    {% if request.user.is_authenticated %}
+                    
+                    <a href="{% url "buycar" car.id %}" class="btn btn-primary mt-3">Buy Now</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

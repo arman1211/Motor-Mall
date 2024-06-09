@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% if messages %}
+{% for message  in messages %}
+<h4>{{message}}</h4>
+{% endfor %}
+{% endif %}
+<section>
+    <div style='height: 70vh' class="row d-flex  align-items-center">
+        <div class="col-6 justify-content-center">
+            <h3>Buy your Dream Car</h3>
+            <p>We wil help to build your dream</p>
+
+        </div>
+        <div class="col-6">
+            <img src="https://i.ibb.co/RD0xvHf/car2.jpg" alt="car2" border="0">
+
+        </div>
+      </div>
+</section>
+<section>
+    <h4 class='text-center text-primary'>Filter by brand name</h4>
+    <div class="filter-car d-flex gap-3 justify-content-center my-5">
+        {% for brand in brands %}
+        <a href="{% url "filter" brand.name %}" class='btn btn-outline-secondary'>{{brand.name}}</a>
+        {% endfor %}
+    </div>
+</section>
+
+<section>
+
+    <div class="container my-4 d-flex flex-wrap gap-3">
+        
+    
+    {% for car in cars %}
+    
+        <div class="card" style="width: 18rem;">
+            <img src="{{car.image.url}}" class="card-img-top" alt="Car Image">
+            <div class="card-body">
+                <h5 class="card-title">{{car.name}}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{car.brand.name}}</h6>
+                <p class="card-text">{{car.description | truncatewords:20}}</p>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><strong>Price:</strong> ${{car.price}}</li>
+                    <li class="list-group-item"><strong>Quantity:</strong> {{car.quantity}} available</li>
+                </ul>
+                <a href="{% url "cardetails" car.id %}" class="btn btn-outline-primary mt-3">See details</a>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+</section>
+{% endblock content %}
