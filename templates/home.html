@@ -17,7 +17,7 @@
             <a href=""></a>
         </div>
         <div class="col-6">
-            <img src="https://i.ibb.co/RD0xvHf/car2.jpg" alt="car2" border="0">
+            <img src="https://i.ibb.co/RD0xvHf/car2.jpg" alt="car2" class='d-none d-md-block'>
 
         </div>
       </div>
@@ -32,10 +32,10 @@
 </section>
 
 <section>
-
+    <h4 class='text-primary text-center text-bold'>Total car found: {{cars | length}}</h4>
     <div class="container my-4 d-flex flex-wrap gap-3">
         
-    
+        
     {% for car in cars %}
     
         <div class="card" style="width: 18rem;">

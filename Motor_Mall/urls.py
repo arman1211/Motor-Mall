@@ -24,7 +24,6 @@ from . import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name='home'),
-    path('add-comment/',views.addcomment,name='add_comment'),
     path('<str:brand_name>/', views.home, name='filter'),
     path('details/<int:id>', views.cardetails, name='cardetails'),
     path('buy/<int:id>', buycar, name='buycar'),

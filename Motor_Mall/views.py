@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect
-from car.models import CarModel, Comment
+from car.models import CarModel, CommentModel
 from car.forms import CommentForm
 from django.contrib import messages
 from brand.models import BrandModel
@@ -16,13 +16,12 @@ def home(request,brand_name = None):
 
 def cardetails(request,id):
     car = CarModel.objects.get(pk=id)
-    comments = Comment.objects.filter(car=car)
+    comments = CommentModel.objects.filter(car=car)
     if request.method == 'POST':
         form = CommentForm(request.POST)
         if form.is_valid():
             comment = form.save(commit=False)
             comment.car = car
-            comment.user = request.user
             comment.save()
             return redirect('cardetails', id=id)
     else:

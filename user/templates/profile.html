@@ -12,15 +12,15 @@
     <div class="col-5 card profile-card shadow-lg w-50 m-auto">
         <div class="card-body text-center">
             <img src="https://i.ibb.co/dbmdcyC/profile.webp" alt="profile" border="0">
-            <h5 class="card-title">{{ request.user.username }}</h5>
-            <h6 class="card-subtitle mb-2 text-muted">{{ request.user.first_name }} {{ request.user.last_name }}</h6>
-            <p class="card-text">{{ request.user.email }}</p>
+            <h5 class="card-title"><strong>User Name </strong>: {{ request.user.username }}</h5>
+            <p class="text-secondary mb-2"><strong>Full Name: </strong>{{ request.user.first_name }} {{ request.user.last_name }}</p>
+            <p class="card-text text-secondary"><strong>Email: </strong>{{ request.user.email }}</p>
             <a href="{% url "edit" %}" class="btn btn-primary mt-3">Edit Profile</a>
         </div>
     </div>
 
-    <div class="card car-list-card shadow-lg w-25">
-        <h3 class="mb-4">Cars Purchased by {{ request.user.username }}</h3>
+    <div class="card car-list-card shadow-lg " style='width: 33%;'>
+        <h3 class="mb-4 text-secondary text-center">Cars Purchased by {{ request.user.username }}</h3>
         {% if purchases %}
             <ul class="list-group">
                 {% for purchase in purchases %}
@@ -32,7 +32,7 @@
                                 <p class="mb-0 text-muted">{{ purchase.car.name }}</p>
                             </div>
                         </div>
-                        <span class="badge bg-primary rounded-pill">${{ purchase.car.price }}</span>
+                        <span class="text-primary">${{ purchase.car.price }}</span>
                     </li>
                 {% endfor %}
             </ul>

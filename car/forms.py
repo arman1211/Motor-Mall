@@ -7,5 +7,5 @@ class CarForm(forms.ModelForm):
         fields = '__all__'
 class CommentForm(forms.ModelForm):
     class Meta:
-        model = models.Comment
-        fields = ['comment',]
+        model = models.CommentModel
+        fields = ['name','comment']

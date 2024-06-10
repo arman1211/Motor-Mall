@@ -78,7 +78,7 @@ def buycar(request,id):
         car.save()
         Purchase.objects.create(user = request.user, car = car)
         messages.success(request,f'Successfully Bought {car.name}')
-        return redirect('profile')
+        return redirect('cardetails',id=id)
     else:
         messages.warning(request,f'Out of stock')
         return redirect('profile')

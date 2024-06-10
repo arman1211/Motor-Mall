@@ -15,8 +15,12 @@ class CarModel(models.Model):
     def __str__(self):
         return self.name
     
-class Comment(models.Model):
-    user = models.ForeignKey(User,on_delete=models.CASCADE)
+# class Comment(models.Model):
+#     name = models.CharField(max_length=50)
+#     car = models.ForeignKey(CarModel,on_delete=models.CASCADE)
+#     comment = models.TextField()
+class CommentModel(models.Model):
+    name = models.CharField(max_length=50)
     car = models.ForeignKey(CarModel,on_delete=models.CASCADE)
     comment = models.TextField()
 

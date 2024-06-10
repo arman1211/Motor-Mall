@@ -38,11 +38,13 @@
 <h3 class='text-center text-primary'>Comments </h3>
 
 <div class="container w-50">
+    {% if comments %}
     {% for comment in comments %}
     <p class='text-bold'>{{comment.comment}}</p>
-    <p class='text-secondary'>commented by: {{comment.user.username}}</p>
+    <p class='text-secondary'>commented by: {{comment.name}}</p>
     <hr>
     {% endfor %}
+    {% endif %}
 </div>
 
 {% if request.user.is_authenticated %}
